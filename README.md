@@ -1,4 +1,4 @@
-# CamAI Vercel Deployment
+# OCR_AI
 
 Ce projet contient une application Next.js pour tester l'OCR des factures via Vercel.
 
