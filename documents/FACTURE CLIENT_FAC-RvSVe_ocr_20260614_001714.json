@@ -1,0 +1,52 @@
+{
+  "societe_emettrice": "MA-INFO",
+  "client": "CLIENT AU COMPTOIR FRANCHISE MOOV",
+  "numero_facture": "FAC-RvSVe",
+  "date_emission": "12/06/2026",
+  "date_echeance": null,
+  "adresse_emetteur": null,
+  "adresse_client": "COTONOU",
+  "ifu": "320080060971801940146701553",
+  "rccm": "RB/COT/07B864\nIFU",
+  "articles": [
+    {
+      "reference": null,
+      "designation": "Sim neutre MOOV",
+      "quantite": 59.0,
+      "unite": null,
+      "prix_unitaire_ht": 85.0,
+      "remise_pct": null,
+      "total_ht": 0.0
+    },
+    {
+      "reference": null,
+      "designation": "Sim Kit VIVO",
+      "quantite": 54.0,
+      "unite": null,
+      "prix_unitaire_ht": 169.0,
+      "remise_pct": null,
+      "total_ht": 0.0
+    }
+  ],
+  "montant_ht": 14153.0,
+  "remise_globale": null,
+  "taux_tva": "18%",
+  "tva": 2547.0,
+  "montant_ttc": 16700.0,
+  "acompte": null,
+  "restant_du": 0.0,
+  "devise": "F CFA",
+  "mode_paiement": "Espèces",
+  "notes": null,
+  "confiance": 0.85,
+  "_meta": {
+    "fichier": "FACTURE CLIENT_FAC-RvSVe.pdf",
+    "modele": "local-parser",
+    "pages": 23,
+    "analyse_le": "14/06/2026 00:17:14",
+    "tokens_utilises": {
+      "input": null,
+      "output": null
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "societe_emettrice": "MA-INFO",
+  "client": "HOUNTONDJI Tarinus",
+  "numero_facture": "FAC-MFokW",
+  "date_emission": "06/06/2026",
+  "date_echeance": null,
+  "adresse_emetteur": null,
+  "adresse_client": null,
+  "ifu": "320080060971801940146701553",
+  "rccm": "RB/COT/07B864\nIFU",
+  "articles": null,
+  "montant_ht": null,
+  "remise_globale": null,
+  "taux_tva": "18%",
+  "tva": 2288.0,
+  "montant_ttc": 15000.0,
+  "acompte": null,
+  "restant_du": 0.0,
+  "devise": "F CFA",
+  "mode_paiement": "Espèces",
+  "notes": null,
+  "confiance": 0.85,
+  "_meta": {
+    "fichier": "FACTURE CLIENT_FAC-MFokW.pdf",
+    "modele": "local-parser",
+    "pages": 21,
+    "analyse_le": "14/06/2026 00:09:27",
+    "tokens_utilises": {
+      "input": null,
+      "output": null
+    }
+  }
+}

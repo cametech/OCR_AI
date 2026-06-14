@@ -1,0 +1,43 @@
+{
+  "societe_emettrice": "MA-INFO",
+  "client": "Entreprise IFB",
+  "numero_facture": "FAC-Mwy64",
+  "date_emission": "09/06/2026",
+  "date_echeance": null,
+  "adresse_emetteur": null,
+  "adresse_client": "Ganhi",
+  "ifu": "320080060971801940146701553",
+  "rccm": "RB/COT/07B864\nIFU",
+  "articles": [
+    {
+      "reference": null,
+      "designation": "Téléphone Moov K301+",
+      "quantite": 2.0,
+      "unite": null,
+      "prix_unitaire_ht": 6356.0,
+      "remise_pct": null,
+      "total_ht": 0.0
+    }
+  ],
+  "montant_ht": 12712.0,
+  "remise_globale": null,
+  "taux_tva": "18%",
+  "tva": 2288.0,
+  "montant_ttc": 15000.0,
+  "acompte": null,
+  "restant_du": 0.0,
+  "devise": "F CFA",
+  "mode_paiement": "Espèces",
+  "notes": null,
+  "confiance": 0.85,
+  "_meta": {
+    "fichier": "FACTURE CLIENT_FAC-Mwy64.pdf",
+    "modele": "local-parser",
+    "pages": 22,
+    "analyse_le": "14/06/2026 00:29:54",
+    "tokens_utilises": {
+      "input": null,
+      "output": null
+    }
+  }
+}

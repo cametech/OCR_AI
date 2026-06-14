@@ -1,0 +1,11 @@
+# Agent OCR Facturation — MA-INFO / DeDminiERP
+# Installation : pip install -r requirements_ocr.txt
+
+openai>=1.30.0
+Pillow>=10.0.0
+pdf2image>=1.17.0
+rich>=13.0.0
+
+# Sur Windows, poppler est requis pour pdf2image :
+# Télécharger ici : https://github.com/oschwartz10612/poppler-windows/releases
+# Extraire et ajouter le dossier bin/ au PATH système
