@@ -381,24 +381,75 @@ def afficher_resultat(data: dict, show_json: bool = False):
     if RICH:
         couleur = "green" if confiance >= 80 else "yellow" if confiance >= 60 else "red"
         console.print()
-        console.print(Panel.fit(f"[bold]{meta.get('fichier','Facture')}[/bold]\n[dim]{meta.get('analyse_le','')} · {meta.get('modele','')}[/dim]", title="[bold cyan]RÉSULTAT OCR[/bold cyan]", border_style="cyan"))
+        console.print(Panel.fit(f"[bold]{meta.get('fichier','Facture')}[/bold]\n[dim]{meta.get('analyse_le','')} · {meta.get('modele','')} · Confiance: {confiance:.0f}%[/dim]", title="[bold cyan]RÉSULTAT OCR[/bold cyan]", border_style="cyan"))
+        
+        # Information générale
         t = Table(box=box.SIMPLE, show_header=False, padding=(0,1))
         t.add_column("Champ", style="dim", width=22)
         t.add_column("Valeur", style="bold")
+        
         fields = [
             ("Société émettrice", data.get("societe_emettrice")),
             ("Client", data.get("client")),
+            ("Adresse client", data.get("adresse_client")),
             ("N° Facture", data.get("numero_facture")),
             ("Date d'émission", data.get("date_emission")),
+            ("IFU", data.get("ifu")),
+            ("RCCM", data.get("rccm")),
+            ("Mode paiement", data.get("mode_paiement")),
         ]
         for label, val in fields:
             if val:
                 t.add_row(label, str(val))
         console.print(t)
+        
+        # Montants
+        console.print("\n[bold]Montants:[/bold]")
+        t_montants = Table(box=box.SIMPLE, show_header=False, padding=(0,1))
+        t_montants.add_column("", style="dim", width=22)
+        t_montants.add_column("", style="bold")
+        montants = [
+            ("Montant HT", data.get("montant_ht")),
+            ("TVA", data.get("tva")),
+            ("Montant TTC", data.get("montant_ttc")),
+            ("Restant dû", data.get("restant_du")),
+        ]
+        for label, val in montants:
+            if val is not None:
+                devise = data.get("devise", "")
+                t_montants.add_row(label, f"{val} {devise}".strip())
+        console.print(t_montants)
+        
+        # Articles
+        articles = data.get("articles")
+        if articles:
+            console.print(f"\n[bold]Articles ({len(articles)}):[/bold]")
+            t_art = Table(box=box.SIMPLE, show_header=True, padding=(0,1))
+            t_art.add_column("Désignation", style="cyan")
+            t_art.add_column("Quantité", style="yellow")
+            t_art.add_column("PU", style="yellow")
+            t_art.add_column("Total", style="bold")
+            for art in articles[:10]:  # afficher max 10 articles
+                designation = art.get("designation", "")
+                qte = art.get("quantite")
+                pu = art.get("prix_unitaire_ht")
+                total = art.get("total_ht")
+                qte_str = f"{qte}" if qte is not None else "—"
+                pu_str = f"{pu}" if pu is not None else "—"
+                total_str = f"{total}" if total is not None else "—"
+                t_art.add_row(designation[:40], qte_str, pu_str, total_str)
+            console.print(t_art)
+            if len(articles) > 10:
+                console.print(f"[dim]… et {len(articles) - 10} autres articles[/dim]")
+        
         if show_json:
-            console.print(Panel(Syntax(json.dumps(data, indent=2, ensure_ascii=False), "json", theme="monokai"), title="JSON"))
+            console.print(Panel(Syntax(json.dumps(data, indent=2, ensure_ascii=False), "json", theme="monokai"), title="JSON complet"))
     else:
-        print(json.dumps(data, indent=2, ensure_ascii=False) if show_json else f"File: {meta.get('fichier','')}, confiance: {confiance:.0f}%")
+        # Fallback sans RICH: afficher JSON complet par défaut
+        print(f"\n{'='*70}")
+        print(f"📄 {meta.get('fichier','')} — Confiance: {confiance:.0f}%")
+        print(f"{'='*70}")
+        print(json.dumps(data, indent=2, ensure_ascii=False))
 
 
 def sauvegarder_json(data: dict, source_path: Path) -> Path:
