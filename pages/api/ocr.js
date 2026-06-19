@@ -1,4 +1,5 @@
 import { parseInvoiceText } from '../../lib/parser';
+import { Blob } from 'buffer';
 
 export const config = {
   api: {
@@ -13,11 +14,12 @@ const OCR_SPACE_API_KEY = process.env.OCR_SPACE_API_KEY || 'helloworld';
 
 async function sendToOcrSpace(name, mimeType, base64data) {
   const buffer = Buffer.from(base64data, 'base64');
+  const blob = new Blob([buffer], { type: mimeType });
   const formData = new FormData();
   formData.append('apikey', OCR_SPACE_API_KEY);
   formData.append('language', 'fre');
   formData.append('isOverlayRequired', 'false');
-  formData.append('file', buffer, name);
+  formData.append('file', blob, name);
 
   const response = await fetch(OCR_SPACE_URL, {
     method: 'POST',
