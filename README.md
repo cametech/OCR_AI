@@ -25,7 +25,15 @@ npm run dev
 4. Déployez le projet.
 
 > Le site web déployé est l’application Next.js contenue dans ce dépôt.
+### Variables d’environnement
 
+Pour le développement local, créez un fichier `.env.local` à la racine du projet avec :
+
+```env
+OCR_SPACE_API_KEY=eb7e9706a688957
+```
+
+Ne commitez pas ce fichier : il est automatiquement ignoré par Git.
 ## Utilisation du GUI Python local
 
 Le fichier `ai_agent_gui.py` est une application de bureau Python pour Windows, macOS et Linux qui s’exécute localement.
