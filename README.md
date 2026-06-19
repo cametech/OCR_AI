@@ -19,9 +19,28 @@ npm run dev
 ## Déploiement sur Vercel
 
 1. Connectez votre dépôt GitHub à Vercel.
-2. Définissez la variable d'environnement `OCR_SPACE_API_KEY` dans le tableau Vercel.
+2. Dans Vercel, créez un projet à partir du dépôt `cametech/OCR_AI`.
+3. Ajoutez la variable d'environnement `OCR_SPACE_API_KEY` dans le tableau Vercel.
    - Si vous ne fournissez pas de clé, la clé de démonstration `helloworld` est utilisée avec des limites.
-3. Déployez sur Vercel.
+4. Déployez le projet.
+
+> Le site web déployé est l’application Next.js contenue dans ce dépôt.
+
+## Utilisation du GUI Python local
+
+Le fichier `ai_agent_gui.py` est une application de bureau Python pour Windows, macOS et Linux qui s’exécute localement.
+
+Installation des dépendances Python :
+
+```bash
+pip install -r requirements.txt
+```
+
+Puis lancez :
+
+```bash
+python ai_agent_gui.py
+```
 
 ## API OCR externe
 
